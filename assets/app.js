@@ -1,12 +1,17 @@
 var btn = document.querySelector("#btn");
 var btnDeletes = document.querySelectorAll("#delete");
-var checkbox = document.getElementById("check");
 
 var checkBox = (e) => {
-  var value = checkbox.value;
-  if (value === "on") {
+  var checkbox = document.getElementById("check").checked;
+
+  if (checkbox === true) {
+    console.log("value");
     e.target.previousElementSibling.previousElementSibling.style.display =
       "block";
+  }
+  else{
+    e.target.previousElementSibling.previousElementSibling.style.display =
+    "none";
   }
 };
 
@@ -17,12 +22,9 @@ var delEte = (e) => {
 btn.addEventListener("click", () => {
   value = document.querySelector("#value").value;
   var content = document.querySelector(".to-do");
-  content.innerHTML += ` <div class="content">          
+  content.innerHTML += ` <div class="content">
   <div class="done"></div>
     <span>${value}</span>
     <input onclick="checkBox(event)" id="check" type="checkbox"><button onclick="delEte(event)" id="delete">delete</button>
 </div>`;
 });
-
-
-
